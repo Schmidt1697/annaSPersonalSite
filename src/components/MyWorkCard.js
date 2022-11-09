@@ -11,7 +11,6 @@ const MyWorkCard = ({project}) => {
       
       <a href={project.gitHub} target="_blank">View GitHub Repo</a>
      
-     
     </div>
   )
 }

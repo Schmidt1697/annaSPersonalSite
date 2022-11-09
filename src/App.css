@@ -1,7 +1,16 @@
 .App {
-  /* text-align: center; */
+  text-align: center;
   margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
   max-width: 1500px;
+}
+
+.container{
+  padding: 100px 0px;
+  margin: 0 auto;
+  overflow-y: scroll;
 }
 
 /*------------ NAVBAR ---------- */
@@ -12,10 +21,11 @@
   align-items:left;
   align-content: center;
   flex-direction: row;
-  /* position: fixed;
+  margin: 0 auto;
+  position: fixed;
   z-index: 2;
   max-width: 1500px;
-  backdrop-filter: blur(5px); */
+  backdrop-filter: blur(5px);
 }
 
 .nav a{
@@ -30,7 +40,17 @@
   transform: scale(1.1);
   cursor: pointer;
 }
-
+/*------------ Home ---------- */
+.home{
+  padding-top: 300px;
+}
+/*------------ About ---------- */
+.about{
+  padding-top: 200px;
+  margin: 0 auto;
+  width: 60vw;
+  max-width: 1500px;
+}
 /*------------ MyWork ---------- */
 
 .project-container{
@@ -40,7 +60,8 @@
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
-  margin: 0 auto;
+  background-color: aqua;
+  /* margin: 0 auto; */
   max-width: 1500px;
 }
 
@@ -53,8 +74,6 @@
     padding: 10px 10px 55px 10px;
     margin: 20px;
     border-radius: 5px;
-    background-color: var(--translucent-white);
-    backdrop-filter: blur(5px);
 }
 
 .project-card img{
@@ -68,4 +87,51 @@
 
 .project-card p{
   width: 600px;
+}
+
+/* -------- CONTACT  -------- */
+
+.contact-container{
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  width: 100%;
+  height: 100vh;
+  max-width: 1500px;
+  background-color: aqua;
+}
+.contact-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50vw;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.contact-form input{
+ border: none;
+ border-radius: 5px;
+ padding: 10px;
+ margin: 5px 0;
+}
+
+.contact-form button {
+  margin-top: 10px;
+}
+
+/* -------SOCIAL MEDIA ICONS ------- */
+.social-media{
+  margin: 20px auto;
+  border-radius: 5px;
+}
+.social-media a{
+  margin: 1rem;
+  font-size: 2rem;
+  transition: .3s ease-in-out;
+}
+
+.social-media a i:hover{
+  cursor: pointer;
+  transform: scale(1.2);
 }
