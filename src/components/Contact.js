@@ -1,3 +1,5 @@
+import Modal from "@mui/material/Modal"
+import Box from "@mui/material/Box"
 import React, { useState } from 'react'
 
 const initialState = {
@@ -6,7 +8,8 @@ const initialState = {
   subject: "",
   message: ""
 }
-const Contact = () => {
+
+const Contact = ({openModal, handleClose}) => {
   const [formData, setFormData] = useState(initialState)
 
   //get values from user input into form
@@ -36,10 +39,39 @@ const Contact = () => {
       //   setFormData(initialState)
       // })
     }
+    
     return (
-      <div className='contact-container container'>
-        <h1>Contact Me</h1>
-        <h3>I'd love to help you build something effecient and elegant!</h3>
+
+        <Modal
+        open={openModal}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box 
+              sx={{backgroundColor: "var(--white-see-through)",
+                backdropFilter: "blur(5px)",
+                color: "",
+                fontFamily: "var(--font-2)",
+                display: "flex",
+                justifyContent: "center",
+                textAlign: "center",
+                flexDirection: "column",
+                alignContent: "center",
+                padding: "2rem",
+                margin: "5vh auto",
+                width: "30vw",
+                maxWidth: "500px",
+                borderRadius: "7px",
+                boxShadow: 10,
+                alignItems: "center",
+                fontSize: "18px",
+                }}>
+
+        <>
+        <div className='contact-container'>
+        <h2>Contact Me</h2>
+        <h4>I'd love to help you build something elegant and effecient!</h4>
         <form className="contact-form" autoComplete='off' onSubmit={submitForm}>
                   <label>Name</label>
                   <input type='text'id="name" name="name" value={formData.name} onChange={handleOnChange} required/>
@@ -55,14 +87,11 @@ const Contact = () => {
 
                   <button className='submit-btn' type="submit">Send</button>
               </form>
-
-            <div className="social-media">
-              <a href="https://www.linkedin.com/in/annaschmidt1697/"><i className="fa-brands fa-linkedin"></i></a>
-              <a href="https://github.com/Schmidt1697" target ="_blank" rel="noopener noreferrer"><i className="fa-brands fa-github"></i></a>
-              <a href="https://www.instagram.com/nana_marsh/" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-instagram"></i></a>
-          </div>
-        
       </div>
+          </>
+        </Box>
+      </Modal>
+     
     )
 }
 

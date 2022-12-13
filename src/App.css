@@ -1,3 +1,14 @@
+:root{
+  --white: #f9f9fb;
+  --white-see-through: rgba(239, 243, 251, 0.9);
+  --black: rgb(36, 39, 43);
+
+  --font1: 'Abhaya Libre', serif;
+  --font2: 'Roboto Flex', sans-serif;
+  --font3: 'Rock Salt', cursive;
+  --font-4: 'Taviraj', serif;
+}
+
 .App {
   text-align: center;
   margin: 0 auto;
@@ -5,12 +16,31 @@
   height: 100vh;
   overflow-y: scroll;
   max-width: 1500px;
+  font-family: var(--font2);
 }
 
 .container{
-  padding: 100px 0px;
+  padding-top: 100px;
   margin: 0 auto;
+  min-height: 72vh;
   overflow-y: scroll;
+}
+
+.san-serif-font{
+  font-family: var(--font1);
+}
+
+button{
+  transition: all .2s ease-in-out; 
+  
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+i{
+  color: var(--black)
 }
 
 /*------------ NAVBAR ---------- */
@@ -42,14 +72,30 @@
 }
 /*------------ Home ---------- */
 .home{
-  padding-top: 300px;
+  padding-top: 38vh;
 }
+
+.home h1{
+  font-size: 70px;
+}
+.home p{
+  font-size: 30px;
+}
+
+
 /*------------ About ---------- */
 .about{
   padding-top: 200px;
   margin: 0 auto;
   width: 60vw;
   max-width: 1500px;
+}
+
+.about-img{
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+  border-radius: 15%;
 }
 /*------------ MyWork ---------- */
 
@@ -60,7 +106,6 @@
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
-  background-color: aqua;
   /* margin: 0 auto; */
   max-width: 1500px;
 }
@@ -70,46 +115,86 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width: 75vw;
-    padding: 10px 10px 55px 10px;
+    width: 40vw;
+    padding: 10px;
     margin: 20px;
     border-radius: 5px;
 }
 
+.img-container{
+  position: relative;
+  /* border: 1px solid black; */
+}
+
 .project-card img{
-  width: 650px;
-  height: 390px;
+  width: 100%;
   object-fit: fit;
   border-radius: 5px;
-  margin-bottom: 10px;
-  border: 1px solid black;
+  /* margin-bottom: 10px; */
 }
 
 .project-card p{
-  width: 600px;
+  position: absolute;
+  padding: 20px;
+  bottom: -15px;
+  border-radius: 5px;
+  color: var(--black);
+  background-color: var(--white-see-through);
+  display:block;
+  transition: 0.1s ease-in-out;
+  z-index: 1;
 }
 
+.project-links{
+    position: relative;
+    padding: 10px;
+    z-index: 3;
+    /* border: red solid 1px; */
+    width: 100%;
+    height: 15vh;
+    background-color: white;
+}
+
+#project-link{
+  text-decoration: none;
+  font-size: 20px;
+  transition: all .2s ease-in-out; 
+}
+
+.demo-btn{
+  border: none;
+  margin: 20px;
+  background-color: transparent;
+  font-size: 20px;
+}
 /* -------- CONTACT  -------- */
 
 .contact-container{
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */
   width: 100%;
-  height: 100vh;
-  max-width: 1500px;
-  background-color: aqua;
+  background-color: rgba(88, 121, 170, 0.8);
+  margin: 0 auto;
+  padding: 20px 0 20px 0;
+  border-radius: 5px;
+  color: var(--white);
 }
 .contact-form{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50vw;
-  max-width: 400px;
+  padding: 10px;
+  width: 90%;
   margin: 0 auto;
+  /* border: red solid 1px; */
 }
 
 .contact-form input{
+ border: none;
+ border-radius: 5px;
+ padding: 10px;
+ margin: 10px 0;
+}
+
+.contact-form textarea{
  border: none;
  border-radius: 5px;
  padding: 10px;
@@ -118,6 +203,14 @@
 
 .contact-form button {
   margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  background-color:rgb(143, 177, 228);
+  color: white;
+}
+.contact-form button:hover {
+  font-weight: bold;
 }
 
 /* -------SOCIAL MEDIA ICONS ------- */
@@ -134,4 +227,13 @@
 .social-media a i:hover{
   cursor: pointer;
   transform: scale(1.2);
+}
+
+.hidden{
+  display: none;
+  visibility: hidden;
+  transform: translateY(75%);
+  transition: 0.1s ease-in;
+
+  
 }
