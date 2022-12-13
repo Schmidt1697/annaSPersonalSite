@@ -258,10 +258,10 @@ i{
 /* -------- CONTACT  -------- */
 
 .contact-container{
-  width: 100%;
+  width: 90%;
   background-color: var(--light-green);
   margin: 0 auto;
-  padding: 20px 0 20px 0;
+  padding: 20px;
   border-radius: 5px;
   color: var(--white);
 }
@@ -293,12 +293,15 @@ i{
   margin-top: 10px;
   border-radius: 5px;
   border: none;
-  padding: 10px;
-  background-color:rgb(0, 58, 90);
+  padding: 7px;
+  background-color:var(--dark-green);
   color: white;
+  font-size: 18px;
+  font-weight: bold;
 }
 .contact-form button:hover {
-  font-weight: bold;
+  background-color: var(--pink);
+  color: var(--white);
 }
 
 /* -------Footer/SOCIAL MEDIA ICONS ------- */
