@@ -3,6 +3,7 @@
   --white-see-through: rgba(239, 243, 251, 0.9);
   --black: rgb(36, 39, 43);
   --pink: rgb(249, 123, 132);
+  --orange: rgb(254, 151, 95);
   --red: rgb(210, 0, 56);
   --light-green: rgb(8, 104, 126);
   --dark-green: rgba(0, 59, 80);
@@ -72,11 +73,12 @@ i{
   padding: 25px 0; 
   margin: 0 25px;
   transition: 0.2s ease-in-out;
-  color: var(--lake-blue);
+  color: var(--light-green);
 }
 .nav a:hover{
   transform: scale(1.1);
   cursor: pointer;
+  color: var(--pink);
 }
 /*------------ Home ---------- */
 .home{
@@ -173,17 +175,53 @@ i{
 
 /*------------ About ---------- */
 .about{
-  padding-top: 200px;
+  /* padding: 0px 50px 0px 50px; */
+  /* width: 100vw;
+  height: 100vh; */
   margin: 0 auto;
-  width: 60vw;
-  max-width: 1500px;
+  max-width: 1600px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  overflow-y: hidden;
+  background-color: var(--white);
+}
+
+.half-page-image{
+  background-image: url('./profile-images/loneGirl.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom 0% left 20%;
+  width: 50vw;
+  max-width: 800px;
+
 }
 
 .about-img{
-  height: 400px;
-  width: 400px;
+  height: 200px;
+  width: 200px;
   object-fit: cover;
-  border-radius: 15%;
+  border-radius: 50%;
+  border: 10px solid var(--pink);
+}
+
+.about-info{
+  padding: 50px 40px 20px 40px;
+  width: 50vw;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--white);
+}
+
+.about-info h3{
+  color: var(--light-green)
+}
+
+.about-info p{
+  width: 38vw;
+  max-width: 650px;
+  margin: 10px auto;
+  /* text-align: start; */
 }
 /*------------ MyWork ---------- */
 
@@ -237,16 +275,21 @@ i{
     position: relative;
     padding: 10px;
     z-index: 3;
-    /* border: red solid 1px; */
     width: 100%;
     height: 15vh;
     background-color: white;
+    color: var(--dark-green);
 }
 
 #project-link{
   text-decoration: none;
   font-size: 20px;
   transition: all .2s ease-in-out; 
+  color: var(--dark-green);
+}
+
+#project-link:hover{
+  color: var(--pink);
 }
 
 .demo-btn{
@@ -254,6 +297,11 @@ i{
   margin: 20px;
   background-color: transparent;
   font-size: 20px;
+  color: var(--dark-green);
+}
+
+.demo-btn:hover{
+  color: var(--pink)
 }
 /* -------- CONTACT  -------- */
 
@@ -309,6 +357,7 @@ i{
 .footer-container{
   background-color: var(--light-green);
   margin: 0 auto;
+  max-width: 1600px;
   color: var(--white);
   padding: 40px;
   border-top: 15px solid white;
