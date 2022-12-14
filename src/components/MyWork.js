@@ -11,7 +11,8 @@ const MyWork = () => {
   })
 
   return (
-    <div className='project-container container'>
+    <div className='project-container'>
+      <div className="layer-project-page"></div>
       <h1>My Work</h1>
       {renderMyProjects}
     </div>

@@ -15,7 +15,7 @@ const NavBar = () => {
       <NavLink to="/">Home</NavLink>
       <NavLink to="/about">About</NavLink>
       <NavLink to="/my-work">MyWork</NavLink>
-      <NavLink to="/" onClick={handleOpen}>Contact</NavLink>
+      <NavLink onClick={handleOpen}>Contact</NavLink>
       <Contact openModal={openModal} handleClose={handleClose}/>
       
     </div>
