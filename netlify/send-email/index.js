@@ -6,7 +6,7 @@ const api_key = process.env.SENDGRID_API_KEY;
 
 sgMail.setApiKey(api_key);
 
-exports.handler = async function (event, context) {
+exports.handler = async function (event) {
     try {
         if (event.httpMethod !== "POST") {
             throw new Error(
@@ -47,7 +47,7 @@ exports.handler = async function (event, context) {
             body: JSON.stringify({ success: true }),
         };
     } catch (error) {
-        alert(error);
+        alert('An error occurred:', error);
         console.error(error);
         return {
             body: JSON.stringify({ success: false, message: error }),
