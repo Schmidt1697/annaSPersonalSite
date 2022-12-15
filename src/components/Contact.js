@@ -15,7 +15,6 @@ const Contact = ({openModal, handleClose}) => {
 
   //get values from user input into form
   const handleOnChange = (e) => {
-    console.log(e.target.value)
     const { name, value } = e.target
     setFormData(formData =>{
       return {
@@ -27,6 +26,8 @@ const Contact = ({openModal, handleClose}) => {
     //send form data
     const submitForm = (e) => {
       e.preventDefault()
+      console.log(formData)
+      
       setIsLoading(true)
       fetch("/.netlify/send-email", {
         method: "POST",
