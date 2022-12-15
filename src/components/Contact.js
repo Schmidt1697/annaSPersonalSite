@@ -11,6 +11,7 @@ const initialState = {
 
 const Contact = ({openModal, handleClose}) => {
   const [formData, setFormData] = useState(initialState)
+  const [isLoading, setIsLoading] = useState(false)
 
   //get values from user input into form
   const handleOnChange = (e) => {
@@ -26,18 +27,27 @@ const Contact = ({openModal, handleClose}) => {
     //send form data
     const submitForm = (e) => {
       e.preventDefault()
-      console.log(formData)
-
-      // fetch('someUrl', {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json"},
-      //   body: JSON.stringify(formData)
-      // })
-      // .then(res => res.json())
-      // .then(data => {
-      //   console.log(data)
-      //   setFormData(initialState)
-      // })
+      setIsLoading(true)
+      fetch("/.netlify/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify(formData)
+      })
+      .then(res => res.json())
+      .then((obj) => {
+        console.log(obj);
+        console.log(
+          `If you're looking on the console, thanks for sending me an email :)`
+        );
+        alert("Message Sent!");
+      })
+      .then(() => {
+        setIsLoading(false)
+        setFormData(initialState)
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
     }
     
     return (
