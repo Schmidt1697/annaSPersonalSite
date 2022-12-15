@@ -95,7 +95,7 @@ const Contact = ({openModal, handleClose}) => {
                   <label>Message</label>
                   <textarea type='text' id="message" name="message" value={formData.message} onChange={handleOnChange} rows="6" required/>
 
-                  <button className='submit-btn' type="submit">Send</button>
+                  <button className='submit-btn' type="submit">{isLoading ? 'Sending...' : 'Send'}</button>
               </form>
       </div>
           </>
