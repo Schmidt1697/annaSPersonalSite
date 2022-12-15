@@ -2,6 +2,7 @@ import Modal from "@mui/material/Modal"
 import Box from "@mui/material/Box"
 import React, { useState } from 'react'
 
+
 const initialState = {
   name: "",
   email: "",
@@ -10,6 +11,7 @@ const initialState = {
 }
 
 const Contact = ({openModal, handleClose}) => {
+
   const [formData, setFormData] = useState(initialState)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -26,10 +28,39 @@ const Contact = ({openModal, handleClose}) => {
     //send form data
     const submitForm = (e) => {
       e.preventDefault()
-      console.log(formData)
-      
-      setIsLoading(true)
-      fetch("/.netlify/send-email", {
+       setIsLoading(true)
+
+      //THIS IS NOT WORKING - DIRECTLY FORM SENDGRID API DOCUMENTATION
+      // const sgMail = require('@sendgrid/mail')
+      // sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+
+     
+      // //create the text and html messages to send w/ sendgrid api
+      // const textMessage = `A new message was sent by ${formData.name} at ${formData.email}. Message: ${formData.message}`;
+
+      // const htmlMessage = `
+      //             <p>A new message was sent by ${formData.name} at ${formData.email}.</p>
+      //             <p> Message: <br/> ${formData.message}</p>
+      //         `;
+
+      // const msg = {
+      //   to: 'anna.schmidt1697@gmail.com', 
+      //   from: 'em3573.annaschmidt.dev', 
+      //   subject: `New Contact Form: ${formData.subject}`,
+      //   text: textMessage,
+      //   html: htmlMessage,
+      // }
+      // sgMail
+      //   .send(msg)
+      //   .then(() => {
+      //     console.log('Email sent')
+      //     setIsLoading(false)
+      //   })
+      //   .catch((error) => {
+      //     console.error('error message',(error))
+      //   })
+
+      fetch("annaschmidt.dev/netlify/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify(formData)
@@ -47,7 +78,11 @@ const Contact = ({openModal, handleClose}) => {
         setFormData(initialState)
       })
       .catch((err) => {
+        setIsLoading(false)
+        setFormData(initialState)
         console.log(err.message);
+        alert('An error occurred; message not sent.');
+        handleClose();
       });
     }
     

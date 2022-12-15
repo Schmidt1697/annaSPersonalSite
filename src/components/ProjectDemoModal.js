@@ -3,7 +3,6 @@ import Box from "@mui/material/Box"
 
 
 const ProjectDemoModal = ({openModal, handleClose, demoUrl}) => {
-    console.log(demoUrl)
     
   return (
   <Modal
