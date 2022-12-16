@@ -34,7 +34,7 @@ exports.handler = async function (event, context) {
                 html: htmlMessage,
             };
 
-    await fetch(`/.netlify/functions/send-email`, {
+    await fetch(`${process.env.URL}/.netlify/functions/send-email`, {
         headers: {
           "netlify-emails-secret": process.env.NETLIFY_EMAILS_SECRET,
         },
