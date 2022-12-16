@@ -78,14 +78,14 @@ const Contact = ({openModal, handleClose}) => {
         } else {
           setIsLoading(false)
           setFormData(initialState)
-          console.log(res.error);
+          console.log(res);
           alert('An error occurred; message not sent.');
           handleClose();
         }
       } )
 
     }
-    
+
     return (
 
         <Modal
