@@ -60,7 +60,7 @@ const Contact = ({openModal, handleClose}) => {
       //     console.error('error message',(error))
       //   })
 
-      fetch("/.netlify/send-email", {
+      fetch("./.netlify/functions/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify(formData)
@@ -69,7 +69,7 @@ const Contact = ({openModal, handleClose}) => {
       .then((obj) => {
         console.log(obj);
         console.log(
-          `If you're looking on the console, thanks for sending me an email :)`
+          `If you're looking at the console, thanks for sending me an email!`
         );
         alert("Message Sent!");
       })
