@@ -65,25 +65,25 @@ const Contact = ({openModal, handleClose}) => {
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify(formData)
       })
-      .then(res => res.json())
-      .then((obj) => {
-        console.log(obj);
-        console.log(
-          `If you're looking at the console, thanks for sending me an email!`
-        );
-        alert("Message Sent!");
-      })
-      .then(() => {
+      .then((res) =>{
         setIsLoading(false)
-        setFormData(initialState)
-      })
-      .catch((err) => {
-        setIsLoading(false)
-        setFormData(initialState)
-        console.log(err.message);
-        alert('An error occurred; message not sent.');
-        handleClose();
-      });
+        if (res.ok){
+          res.json()
+          setFormData(initialState)
+          console.log(res);
+          console.log(
+            `If you're looking at the console, thanks for sending me an email!`
+          );
+          alert("Message Sent!");
+        } else {
+          setIsLoading(false)
+          setFormData(initialState)
+          console.log(res.error);
+          alert('An error occurred; message not sent.');
+          handleClose();
+        }
+      } )
+
     }
     
     return (
