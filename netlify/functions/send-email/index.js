@@ -1,3 +1,4 @@
+import fetch from 'node-fetch'
 
 exports.handler = async function (event, context) {
         try {
@@ -29,7 +30,7 @@ exports.handler = async function (event, context) {
 
     await fetch(`${process.env.URL}/.netlify/functions/send-email`, {
         headers: {
-          "netlify-emails-secret": process.env.NETLIFY_EMAILS_SECRET,
+          "netlify-emails-secret": process.env.NETLIFY_EMAILS_SECRET.replace(/\\n/gm, '\n'),
         },
         method: "POST",
         body: JSON.stringify(email),

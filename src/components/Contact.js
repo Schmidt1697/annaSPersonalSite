@@ -60,7 +60,7 @@ const Contact = ({openModal, handleClose}) => {
       //     console.error('error message',(error))
       //   })
 
-      fetch("/.netlify/functions/send-email", {
+      fetch(`${process.env.URL}/.netlify/functions/send-email`, {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify(formData)
@@ -78,7 +78,7 @@ const Contact = ({openModal, handleClose}) => {
         } else {
           setIsLoading(false)
           setFormData(initialState)
-          console.log(res);
+          console.error(res);
           alert('An error occurred; message not sent.');
           handleClose();
         }
