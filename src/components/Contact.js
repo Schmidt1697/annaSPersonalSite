@@ -60,7 +60,7 @@ const Contact = ({openModal, handleClose}) => {
       //     console.error('error message',(error))
       //   })
 
-      fetch(`${process.env.URL}/.netlify/functions/send-email`, {
+      fetch(`/netlify/functions/send-email`, {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify(formData)
