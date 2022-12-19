@@ -6,15 +6,8 @@ exports.handler = async function (event, context) {
                     `Expecting a POST request, but received a ${event.httpMethod} request instead.`
                 );
             }
-            if (!event.body) {
-                throw new Error("Body is empty. Are you trying to send an email?");
-            }
-    
+
             const data = JSON.parse(event.body);
-    
-            if (!data.name) {
-                throw new Error("Name is required!");
-            }
     
             const textMessage = `
             A new message was sent by ${data.name} at ${data.email}.
