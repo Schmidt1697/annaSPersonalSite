@@ -10,7 +10,7 @@ const Home = () => {
       <div className="home-page-info-container">
           <p>Hello, my name is</p>
           <h1 className='san-serif-font'>Anna.</h1>
-          <p>I'm a Software Engineer.</p>
+          <p>I'm a Software Developer.</p>
           <Link to={"/my-work"}>Portfolio</Link>
       </div>
       
