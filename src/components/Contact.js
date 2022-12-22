@@ -72,6 +72,7 @@ const Contact = ({openModal, handleClose}) => {
       setShowError(false);
       handleClose();
     }, 4000);
+    // eslint-disable-next-line
   }, [showError, showSuccess]);
 
   // render an error or success msg after submit
