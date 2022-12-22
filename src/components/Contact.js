@@ -85,6 +85,7 @@ const Contact = ({openModal, handleClose}) => {
         <h2>Contact Me</h2>
         <h4>I'd love to help you build something elegant and effecient!</h4>
         <form className="contact-form" autoComplete='off' name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="Contact" />
                   <label>Name</label>
                   <input type='text'id="name" name="name" required/>
 
