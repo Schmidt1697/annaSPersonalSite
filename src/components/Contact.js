@@ -48,6 +48,7 @@ const Contact = ({openModal, handleClose}) => {
           if (response.ok) {
             // setShowSuccess(true);
             setIsLoading(false);
+            setFormData(initialState);
           } else {
             alert("Form Submission Error:", response)
             console.error("Form Submission Error:", response);
@@ -95,7 +96,7 @@ const Contact = ({openModal, handleClose}) => {
         <div className='contact-container'>
         <h2>Contact Me</h2>
         <h4>I'd love to help you build something elegant and effecient!</h4>
-        <form className="contact-form" autoComplete='off' name="contact" method="POST" data-netlify="true">
+        <form className="contact-form">
 
                   <label>Name</label>
                   <input type='text'id="name" name="name" value={formData.name} onChange={handleOnChange}  required/>
