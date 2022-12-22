@@ -70,7 +70,8 @@ const Contact = ({openModal, handleClose}) => {
       setFormData(initialState);
       setShowSuccess(false);
       setShowError(false);
-    }, 6000);
+      handleClose();
+    }, 4000);
   }, [showError, showSuccess]);
 
   // render an error or success msg after submit
@@ -129,7 +130,7 @@ const Contact = ({openModal, handleClose}) => {
 
           <ul>{errorMsg}</ul>
           <ul>{successMsg}</ul>
-          
+
         </div>
           </>
         </Box>
