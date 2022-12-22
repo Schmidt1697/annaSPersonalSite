@@ -1,6 +1,6 @@
 import Modal from "@mui/material/Modal"
 import Box from "@mui/material/Box"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 const initialState = {
@@ -13,6 +13,8 @@ const initialState = {
 const Contact = ({openModal, handleClose}) => {
   const [formData, setFormData] = useState(initialState)
   const [isLoading, setIsLoading] = useState(false)
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   // get values from user input into form
   const handleOnChange = (e) => {
@@ -46,21 +48,45 @@ const Contact = ({openModal, handleClose}) => {
         .then((response) => {
           if (response.ok) {
             console.log(response)
-            
+            setShowSuccess(true);
             setIsLoading(false);
-            setFormData(initialState);
           } else {
-            alert("Form Submission Error:", response)
+            setShowError(true);
             console.error("Form Submission Error:", response);
             setIsLoading(false);
           }
         })
         .catch((error) => {
           console.error("Form Submission Error:", error);
-          alert("Form Submission Error:", error)
+          setShowError(true);
           setIsLoading(false);
         });
     }
+
+    // let success/error message show for 6 seconds, then reset form
+  useEffect(() => {
+    setTimeout(() => {
+      setFormData(initialState);
+      setShowSuccess(false);
+      setShowError(false);
+    }, 6000);
+  }, [showError, showSuccess]);
+
+  // render an error
+  if (showError) {
+    return (
+      <div>
+        There was an error sending your message. Please try again later.
+      </div>
+    );
+  }
+
+  // render success message
+  if (showSuccess) {
+    return (
+      <div>Thank you for your message!</div>
+    );
+  }
 
 
     return (
@@ -95,7 +121,7 @@ const Contact = ({openModal, handleClose}) => {
         <div className='contact-container'>
         <h2>Contact Me</h2>
         <h4>I'd love to help you build something elegant and effecient!</h4>
-        <form className="contac-form" onSubmit={handleSubmit}>
+        <form className="contact-form" onSubmit={handleSubmit}>
 
                   <label>Name</label>
                   <input type='text'id="name" name="name" value={formData.name} onChange={handleOnChange}  required/>
