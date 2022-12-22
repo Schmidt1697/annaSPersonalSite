@@ -1,29 +1,29 @@
 import Modal from "@mui/material/Modal"
 import Box from "@mui/material/Box"
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 
 
-const initialState = {
-  name: "",
-  email: "",
-  subject: "",
-  message: ""
-}
+// const initialState = {
+//   name: "",
+//   email: "",
+//   subject: "",
+//   message: ""
+// }
 
 const Contact = ({openModal, handleClose}) => {
 
-  const [formData, setFormData] = useState(initialState)
+  // const [formData, setFormData] = useState(initialState)
   // const [isLoading, setIsLoading] = useState(false)
 
   //get values from user input into form
-  const handleOnChange = (e) => {
-    const { name, value } = e.target
-    setFormData(formData =>{
-      return {
-        ...formData,
-        [name]: value
-      }
-    })}
+  // const handleOnChange = (e) => {
+  //   const { name, value } = e.target
+  //   setFormData(formData =>{
+  //     return {
+  //       ...formData,
+  //       [name]: value
+  //     }
+  //   })}
 
      
     //   fetch(`/.netlify/functions/send-email`, {
