@@ -11,7 +11,6 @@ const initialState = {
 }
 
 const Contact = ({openModal, handleClose}) => {
-
   const [formData, setFormData] = useState(initialState)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -46,7 +45,8 @@ const Contact = ({openModal, handleClose}) => {
       })
         .then((response) => {
           if (response.ok) {
-            // setShowSuccess(true);
+            console.log(response)
+            
             setIsLoading(false);
             setFormData(initialState);
           } else {
@@ -56,7 +56,6 @@ const Contact = ({openModal, handleClose}) => {
           }
         })
         .catch((error) => {
-          // setShowError(true);
           console.error("Form Submission Error:", error);
           alert("Form Submission Error:", error)
           setIsLoading(false);
