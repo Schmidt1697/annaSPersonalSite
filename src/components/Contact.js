@@ -1,56 +1,67 @@
 import Modal from "@mui/material/Modal"
 import Box from "@mui/material/Box"
-// import React, { useState } from 'react'
+import React, { useState } from 'react'
 
 
-// const initialState = {
-//   name: "",
-//   email: "",
-//   subject: "",
-//   message: ""
-// }
+const initialState = {
+  name: "",
+  email: "",
+  subject: "",
+  message: ""
+}
 
 const Contact = ({openModal, handleClose}) => {
 
-  // const [formData, setFormData] = useState(initialState)
-  // const [isLoading, setIsLoading] = useState(false)
+  const [formData, setFormData] = useState(initialState)
+  const [isLoading, setIsLoading] = useState(false)
 
-  //get values from user input into form
-  // const handleOnChange = (e) => {
-  //   const { name, value } = e.target
-  //   setFormData(formData =>{
-  //     return {
-  //       ...formData,
-  //       [name]: value
-  //     }
-  //   })}
+  // get values from user input into form
+  const handleOnChange = (e) => {
+    const { name, value } = e.target
+    setFormData(formData =>{
+      return {
+        ...formData,
+        [name]: value
+      }
+    })}
 
-     
-    //   fetch(`/.netlify/functions/send-email`, {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json"},
-    //     body: JSON.stringify(formData)
-    //   })
-    //   .then((res) =>{
-    //     setIsLoading(false)
-    //     if (res.ok){
-    //       res.json()
-    //       setFormData(initialState)
-    //       console.log(res);
-    //       console.log(
-    //         `If you're looking at the console, thanks for sending me an email!`
-    //       );
-    //       alert("Message Sent!");
-    //     } else {
-    //       setIsLoading(false)
-    //       setFormData(initialState)
-    //       console.error(res);
-    //       alert('An error occurred; message not sent.');
-    //       handleClose();
-    //     }
-    //   } )
+    function handleSubmit(e) {
+      e.preventDefault();
+      setIsLoading(true);
+    
+      // create a URLParamObject
+      const params = new URLSearchParams();
+      params.append("name", formData.name);
+      params.append("email", formData.email);
+      params.append("message", formData.message);
+      params.append("form-name", "contact"); // the name of your form in Netlify
+      const urlEncodedData = params.toString();
+    
+      fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded", // sending URL encoded data
+        },
+        body: urlEncodedData,
+      })
+        .then((response) => {
+          if (response.ok) {
+            // setShowSuccess(true);
+            setIsLoading(false);
+          } else {
+            alert("Form Submission Error:", response)
+            console.error("Form Submission Error:", response);
+            setIsLoading(false);
+          }
+        })
+        .catch((error) => {
+          // setShowError(true);
+          console.error("Form Submission Error:", error);
+          alert("Form Submission Error:", error)
+          setIsLoading(false);
+        });
+    }
 
-    // }
 
     return (
 
@@ -85,22 +96,22 @@ const Contact = ({openModal, handleClose}) => {
         <h2>Contact Me</h2>
         <h4>I'd love to help you build something elegant and effecient!</h4>
         <form className="contact-form" autoComplete='off' name="contact" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="Contact" />
+
                   <label>Name</label>
-                  <input type='text'id="name" name="name" required/>
+                  <input type='text'id="name" name="name" value={formData.name} onChange={handleOnChange}  required/>
 
                   <label>Email</label>
-                  <input type='text'id="email" name="email" required/>
+                  <input type='email'id="email" name="email" value={formData.email} onChange={handleOnChange} required/>
 
                   <label>Subject</label>
-                  <input type='text'id="subject" name="subject" required/>
+                  <input type='text'id="subject" name="subject" value={formData.subject} onChange={handleOnChange} required/>
 
                   <label>Message</label>
-                  <textarea type='text' id="message" name="message" rows="6" required/>
+                  <textarea type='text' id="message" name="message" rows="6" value={formData.message} onChange={handleOnChange} required/>
 
-                  <button className='submit-btn' type="submit">Submit</button>
-              </form>
-      </div>
+                  <button className='submit-btn' type="submit" onSubmit={handleSubmit}>{isLoading ? "Loading..." : "Submit" }</button>
+          </form>
+        </div>
           </>
         </Box>
       </Modal>
