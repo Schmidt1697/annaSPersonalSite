@@ -34,6 +34,7 @@ const Contact = ({openModal, handleClose}) => {
       const params = new URLSearchParams();
       params.append("name", formData.name);
       params.append("email", formData.email);
+      params.append("subject", formData.subject);
       params.append("message", formData.message);
       params.append("form-name", "contact"); // the name of your form in Netlify
       const urlEncodedData = params.toString();
@@ -72,23 +73,11 @@ const Contact = ({openModal, handleClose}) => {
     }, 6000);
   }, [showError, showSuccess]);
 
-  // render an error
-  if (showError) {
-    return (
-      <div>
-        There was an error sending your message. Please try again later.
-      </div>
-    );
-  }
-
-  // render success message
-  if (showSuccess) {
-    return (
-      <div>Thank you for your message!</div>
-    );
-  }
-
-
+  // render an error or success msg after submit
+  const errorMsg = showError ? <li>There was an error sending your message. Please try again later.</li> : "";
+  
+  const successMsg = showSuccess ? <li>Thank you for your message!</li> : "";
+ 
     return (
 
         <Modal
@@ -137,6 +126,10 @@ const Contact = ({openModal, handleClose}) => {
 
                   <button className='submit-btn' type="submit">{isLoading ? "Loading..." : "Submit" }</button>
           </form>
+
+          <ul>{errorMsg}</ul>
+          <ul>{successMsg}</ul>
+          
         </div>
           </>
         </Box>

@@ -51,6 +51,17 @@ i{
   color: var(--dark-green)
 }
 
+ul{
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  margin: 0 auto;
+}
+
+li{
+  list-style: none;
+}
+
 /*------------ NAVBAR ---------- */
 .nav {
   width: 100vw;
