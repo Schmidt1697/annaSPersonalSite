@@ -95,7 +95,7 @@ const Contact = ({openModal, handleClose}) => {
         <div className='contact-container'>
         <h2>Contact Me</h2>
         <h4>I'd love to help you build something elegant and effecient!</h4>
-        <form className="contact-form">
+        <form className="contact" onSubmit={handleSubmit}>
 
                   <label>Name</label>
                   <input type='text'id="name" name="name" value={formData.name} onChange={handleOnChange}  required/>
@@ -109,7 +109,7 @@ const Contact = ({openModal, handleClose}) => {
                   <label>Message</label>
                   <textarea type='text' id="message" name="message" rows="6" value={formData.message} onChange={handleOnChange} required/>
 
-                  <button className='submit-btn' type="submit" onSubmit={handleSubmit}>{isLoading ? "Loading..." : "Submit" }</button>
+                  <button className='submit-btn' type="submit">{isLoading ? "Loading..." : "Submit" }</button>
           </form>
         </div>
           </>
