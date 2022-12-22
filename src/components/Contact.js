@@ -86,16 +86,16 @@ const Contact = ({openModal, handleClose}) => {
         <h4>I'd love to help you build something elegant and effecient!</h4>
         <form className="contact-form" autoComplete='off' name="contact" method="POST" data-netlify="true">
                   <label>Name</label>
-                  <input type='text'id="name" name="name" value={formData.name} onChange={handleOnChange} required/>
+                  <input type='text'id="name" name="name" required/>
 
                   <label>Email</label>
-                  <input type='text'id="email" name="email" value={formData.email} onChange={handleOnChange} required/>
+                  <input type='text'id="email" name="email" required/>
 
                   <label>Subject</label>
-                  <input type='text'id="subject" name="subject" value={formData.subject} onChange={handleOnChange} required/>
+                  <input type='text'id="subject" name="subject" required/>
 
                   <label>Message</label>
-                  <textarea type='text' id="message" name="message" value={formData.message} onChange={handleOnChange} rows="6" required/>
+                  <textarea type='text' id="message" name="message" rows="6" required/>
 
                   <button className='submit-btn' type="submit">Submit</button>
               </form>
