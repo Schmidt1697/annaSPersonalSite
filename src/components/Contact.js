@@ -95,7 +95,7 @@ const Contact = ({openModal, handleClose}) => {
         <div className='contact-container'>
         <h2>Contact Me</h2>
         <h4>I'd love to help you build something elegant and effecient!</h4>
-        <form className="contact" onSubmit={handleSubmit}>
+        <form className="contac-form" onSubmit={handleSubmit}>
 
                   <label>Name</label>
                   <input type='text'id="name" name="name" value={formData.name} onChange={handleOnChange}  required/>
