@@ -1,6 +1,6 @@
 import Modal from "@mui/material/Modal"
 import Box from "@mui/material/Box"
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 
 const initialState = {
@@ -51,10 +51,12 @@ const Contact = ({openModal, handleClose}) => {
             console.log(response)
             setShowSuccess(true);
             setIsLoading(false);
+            modalCloseDelay();
           } else {
             setShowError(true);
             console.error("Form Submission Error:", response);
             setIsLoading(false);
+            modalCloseDelay();
           }
         })
         .catch((error) => {
@@ -65,14 +67,15 @@ const Contact = ({openModal, handleClose}) => {
     }
 
     // let success/error message show for 6 seconds, then reset form
-  useEffect(() => {
+const modalCloseDelay = () => {
     setTimeout(() => {
       setFormData(initialState);
       setShowSuccess(false);
       setShowError(false);
+      handleClose()
     }, 4000);
-    // eslint-disable-next-line
-  }, [showError, showSuccess]);
+    
+  }
 
   // render an error or success msg after submit
   const errorMsg = showError ? <li>There was an error sending your message. Please try again later.</li> : "";
