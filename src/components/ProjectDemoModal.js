@@ -20,9 +20,10 @@ const ProjectDemoModal = ({openModal, handleClose, demoUrl}) => {
           textAlign: "center",
           flexDirection: "column",
           alignContent: "center",
-					padding: "3rem",
+					padding: "10px",
 					margin: "10vh auto",
-					width: "50%",
+					width: "80%",
+          height: "70%",
 					borderRadius: "7px",
 					boxShadow: 10,
 					alignItems: "center",
@@ -30,7 +31,7 @@ const ProjectDemoModal = ({openModal, handleClose, demoUrl}) => {
           }}>
 
     <div className="project-demo-modal">
-        {demoUrl ? <iframe title="project-demo" width="800px" height="600px" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+        {demoUrl ? <iframe title="project-demo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
         src={demoUrl}>
         </iframe> : "Demo not available at this time."}
         

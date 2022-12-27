@@ -70,7 +70,6 @@ const Contact = ({openModal, handleClose}) => {
       setFormData(initialState);
       setShowSuccess(false);
       setShowError(false);
-      handleClose();
     }, 4000);
     // eslint-disable-next-line
   }, [showError, showSuccess]);
@@ -91,20 +90,19 @@ const Contact = ({openModal, handleClose}) => {
         <Box 
               sx={{backgroundColor: "var(--white-see-through)",
                 backdropFilter: "blur(5px)",
-                color: "",
                 fontFamily: "var(--font-2)",
                 display: "flex",
                 justifyContent: "center",
                 textAlign: "center",
                 flexDirection: "column",
                 alignContent: "center",
-                padding: "2rem",
+                alignItems: "center",
+                padding: "1rem",
                 margin: "5vh auto",
-                width: "30vw",
+                width: "75%",
                 maxWidth: "500px",
                 borderRadius: "7px",
                 boxShadow: 10,
-                alignItems: "center",
                 fontSize: "18px",
                 }}>
 
