@@ -230,7 +230,7 @@ li{
   background-color: var(--white);
 }
 
-.half-page-image{
+/* .half-page-image{
   background-image: url('./profile-images/loneGirl.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -238,11 +238,11 @@ li{
   width: 50vw;
   max-width: 800px;
 
-}
+} */
 
 .about-img{
-  height: 200px;
-  width: 200px;
+  height: 250px;
+  width: 250px;
   object-fit: cover;
   border-radius: 50%;
   border: 10px solid var(--pink);
@@ -269,11 +269,12 @@ li{
 /*------------ MyWork ---------- */
 
 .project-container{
-  background-image: url('./profile-images/wavyWhite.jpg');
+  /* background-image: url('./profile-images/wavyWhite.jpg');
   background-repeat: no-repeat;
   background-position: center;
 
-  background-attachment: fixed;
+  background-attachment: fixed; */
+  background-color: var(--white);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -293,7 +294,7 @@ li{
   margin: 0 auto;
   color: var(--light-green);
   font-size: 60px;
-  border-bottom: 20px solid var(--white);
+  border-bottom: 20px solid white;
   background-image: url('./profile-images/yellowMountains.jpeg');
   background-repeat: no-repeat;
   background-position: top 35% right 0%;
