@@ -101,7 +101,8 @@ li {
 	transition: 0.2s ease-in-out;
 	cursor: pointer;
 	color: var(--pink);
-	border-bottom: solid var(--white) 1px;
+	text-decoration: solid 2px var(--white) underline;
+	text-underline-offset: 8px;
 }
 
 .hamburger {
