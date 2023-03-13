@@ -5,14 +5,19 @@
 	--pink: rgb(249, 123, 132);
 	--orange: rgb(254, 151, 95);
 	--red: rgb(210, 0, 56);
-	--light-green: rgb(8, 104, 126);
-	--dark-green: rgba(0, 59, 80);
+	--light-blue: rgb(9, 73, 118);
+	--dark-blue: rgb(7, 48, 78);
 	--lake-blue: rgb(0, 115, 156);
 
-	/* --font1: 'Abhaya Libre', serif; */
+	--dark-blue-overlay: rgba(9, 73, 118, 0.7);
+
+	--font1: 'Monoton', cursive;
 	--font2: 'Roboto Flex', sans-serif;
-	/* --font1: 'Rock Salt', cursive; */
+	--font3: 'Tenor Sans', sans-serif;
 	/* --font1: 'Taviraj', serif; */
+
+	/* font-family: 'Monoton', cursive; */
+	font-family: 'Tenor Sans', sans-serif;
 }
 
 .App {
@@ -22,7 +27,8 @@
   height: 100vh; */
 	overflow-y: scroll;
 	max-width: 1600px;
-	color: var(--dark-green);
+	color: var(--dark-blue);
+	font-family: var(--font2);
 }
 
 .container {
@@ -33,7 +39,7 @@
 }
 
 .san-serif-font {
-	font-family: var(--font2);
+	font-family: var(--font1);
 }
 
 button {
@@ -45,7 +51,7 @@ button:hover {
 }
 
 i {
-	color: var(--dark-green);
+	color: var(--dark-blue);
 }
 
 ul {
@@ -72,10 +78,10 @@ li {
 	align-items: center;
 	align-content: center;
 	flex-direction: row;
-	z-index: 2;
+	z-index: 5;
 	backdrop-filter: blur(5px);
 	max-width: 1600px;
-	background-color: var(--light-green);
+	background-color: var(--light-blue);
 }
 
 .nav-menu {
@@ -125,7 +131,7 @@ li {
 .home {
 	position: relative;
 	padding-top: 32vh;
-	z-index: 1;
+	z-index: 2;
 	background-image: url('./profile-images/yellowMountains.webp');
 	background-repeat: no-repeat;
 	background-position: top 55% right 0%;
@@ -133,6 +139,18 @@ li {
 	background-size: cover;
 	overflow-y: hidden;
 	overflow-x: hidden;
+}
+
+.darkOverlay {
+	position: absolute;
+	background-color: var(--dark-blue);
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 3;
+	overflow-y: none;
+	max-width: 1600px;
+	margin: 0 auto;
 }
 
 .home-page-info-container {
@@ -144,8 +162,8 @@ li {
 	color: var(--white);
 	position: relative;
 	border: 12px solid var(--white);
-	z-index: -1;
-	background-color: rgba(0, 59, 80, 0.7);
+	z-index: 4;
+	background-color: var(--dark-blue-overlay);
 	border-radius: 5px;
 }
 
@@ -153,39 +171,39 @@ li {
 	margin: 0;
 }
 
-/* .layer{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow-y: none;
-} */
+.layer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	overflow-y: none;
+	background: linear-gradient(rgba(9, 73, 118, 0.8), rgba(249, 123, 130, 0.7));
+}
 
 .layer2 {
-	/* background-color: rgba(8, 50, 55, 0.4); */
 	position: absolute;
-	border-top: 12px solid white;
-	border-left: 12px solid white;
+	border-top: 12px solid var(--white);
+	border-left: 12px solid var(--white);
 	top: 15vh;
 	left: 15vh;
 	width: 100%;
 	height: 100%;
-	z-index: 0;
+	z-index: 5;
 	overflow-y: none;
 	border-radius: 5px;
 }
 
 .layer3 {
 	position: absolute;
-	border-right: 12px solid white;
-	border-bottom: 12px solid white;
+	border-right: 12px solid var(--white);
+	border-bottom: 12px solid var(--white);
 	bottom: 15vh;
 	right: 15vh;
 	width: 100%;
 	height: 100%;
-	z-index: -1;
+	z-index: 4;
 	overflow-y: none;
 	border-radius: 5px;
 }
@@ -216,7 +234,7 @@ li {
 }
 .home a:hover {
 	color: var(--pink);
-	border-bottom: solid 1px white;
+	border-bottom: solid 1px var(--white);
 }
 
 /*------------ About ---------- */
@@ -257,7 +275,7 @@ li {
 }
 
 .about-info h3 {
-	color: var(--light-green);
+	color: var(--light-blue);
 }
 
 .about-info p {
@@ -274,7 +292,7 @@ li {
   background-position: center;
 
   background-attachment: fixed; */
-	background-color: var(--white);
+	background-color: var(--dark-blue);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -287,19 +305,21 @@ li {
 
 .project-container h1 {
 	width: 100%;
-	height: 20vh;
-	padding-top: 18vh;
+	height: 10vh;
+	padding: 5vh 0;
 	max-width: 1600px;
 	text-align: center;
 	margin: 0 auto;
-	color: var(--light-green);
-	font-size: 60px;
-	border-bottom: 20px solid white;
-	background-image: url('./profile-images/yellowMountains.webp');
+	color: var(--white);
+	font-family: var(--font1);
+	font-size: 50px;
+	border-bottom: 20px solid var(--white);
+	background: linear-gradient(rgba(9, 73, 118, 1), rgba(249, 123, 130, 0.8));
+	/* background-image: url('./profile-images/yellowMountains.webp');
 	background-repeat: no-repeat;
 	background-position: top 35% right 0%;
 	background-size: cover;
-	background-attachment: fixed;
+	background-attachment: fixed; */
 }
 
 .project-card {
@@ -313,7 +333,7 @@ li {
 	padding: 20px;
 	border-radius: 5px;
 	color: var(--white);
-	background-color: var(--light-green);
+	background-color: var(--darl-blue);
 }
 
 .img-container {
@@ -333,8 +353,9 @@ li {
 	padding: 20px;
 	bottom: -15px;
 	border-radius: 5px;
-	color: var(--black);
-	background-color: var(--white-see-through);
+	color: var(--white);
+	background-color: var(--dark-blue-overlay);
+	backdrop-filter: blur(5px);
 	display: block;
 	transition: 0.1s ease-in-out;
 	z-index: 1;
@@ -347,13 +368,13 @@ li {
 	width: 100%;
 	height: 13vh;
 	max-height: 100px;
-	background-color: var(--light-green);
+	background-color: var(--dark-blue);
 	color: var(--pink);
 }
 
 #project-link {
 	text-decoration: none;
-	font-size: 20px;
+	font-size: 30px;
 	transition: all 0.2s ease-in-out;
 	color: var(--white);
 }
@@ -387,11 +408,12 @@ li {
 /* -------- CONTACT  -------- */
 
 .contact-container {
-	background-color: var(--light-green);
+	background-color: var(--light-blue);
 	margin: 0 auto;
 	padding: 20px;
 	border-radius: 5px;
 	color: var(--white);
+	font-family: var(--font2);
 }
 
 .contact-form {
@@ -421,7 +443,7 @@ li {
 	border-radius: 5px;
 	border: none;
 	padding: 7px;
-	background-color: var(--dark-green);
+	background-color: var(--dark-blue);
 	color: white;
 	font-size: 18px;
 	font-weight: bold;
@@ -434,7 +456,7 @@ li {
 /* -------Footer/SOCIAL MEDIA ICONS ------- */
 
 .footer-container {
-	background-color: var(--light-green);
+	background-color: var(--light-blue);
 	margin: 0 auto;
 	max-width: 1600px;
 	color: var(--white);
@@ -452,7 +474,7 @@ li {
 	font-size: 20px;
 	font-weight: bold;
 	border-radius: 5px;
-	color: var(--light-green);
+	color: var(--light-blue);
 	transition: 0.3s ease-in-out;
 }
 .contact-btn:hover {
@@ -463,7 +485,7 @@ li {
 .social-media {
 	margin: 20px auto;
 	border-radius: 5px;
-	background-color: var(--light-green);
+	background-color: var(--light-blue);
 }
 .social-media a i {
 	margin: 1rem;
@@ -471,7 +493,8 @@ li {
 	transition: 0.3s ease-in-out;
 }
 
-.social-media a i:hover {
+.social-media a i:hover,
+.github-btn:hover {
 	cursor: pointer;
 	transform: rotateY(180deg);
 	color: var(--pink);
@@ -530,7 +553,7 @@ li {
 		justify-content: left;
 		margin-top: 225px;
 		padding: 10px 0;
-		background-color: var(--light-green);
+		background-color: var(--light-blue);
 		border-radius: 0 0 7px 0;
 		transform: translateX(-100%);
 		transition: 0.2s ease-in-out;
@@ -564,7 +587,7 @@ li {
 		border: 15px solid var(--white);
 		border-radius: 5px;
 		z-index: -1;
-		background-color: rgba(0, 59, 80, 0.7);
+		background-color: var(--dark-blue-overlay);
 	}
 
 	.layer2 {

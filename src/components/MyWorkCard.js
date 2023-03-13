@@ -30,7 +30,7 @@ const showDetailsClass = showDetails ? "" : "hidden"
       </div>
 
       <div className="project-links">
-        <a id="project-link" href={project.gitHub} rel="noreferrer" target="_blank">Github</a>
+        <a id="project-link" href={project.gitHub} rel="noreferrer" target="_blank"><i className="fa-brands fa-github" id="project-link" title="GitHub"></i></a>
         <button className='demo-btn' onClick={handleOpen}>Demo</button>
       </div>
 

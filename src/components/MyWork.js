@@ -13,7 +13,7 @@ const MyWork = () => {
   return (
     <div className='project-container'>
       <div className="layer-project-page"></div>
-      <h1>My Work</h1>
+      <h1>Projects</h1>
       {renderMyProjects}
     </div>
   )

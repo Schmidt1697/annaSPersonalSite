@@ -8,16 +8,16 @@ const About = () => {
       <div className="about-info">
       <img className="about-img" src={AboutPhoto} alt="Anna" />
         <h3 className='san-serif-font'>
-        A bit about me. . . 
+        A BIT ABOUT ME. . . 
         </h3>
         <p>
-        I'm a full stack software engineer passionate about developing creative solutions to improve lives. I completed the software engineering bootcamp at Flatiron School in December 2022. I love that learning is a continuous and integral part of programming and thoroughly enjoy growing my programming skills. I am currently learning Node.js, Express.js and MongoDB. 
+        I'm a software engineer with experience building front-end, back-end, and full stack applications using JavaScript, React.js, Node.js and Ruby on Rails. Software engineering inspires me with the outstanding possibilities to collaborate and create technology to positively impact numerous lives.
         </p>
         <p>
-        My unconventional path to software development started while working as an emergency room and critical-care nurse. I love to help others, and have a lot of hands-on experience doing so. Before enrolling in the Flatiron School coding bootcamp, I completed multiple online courses/projects, and read books on HTML, CSS, and JavaScript. I'm in awe of the infinite possibilities this career field allows in terms of collaborating and creating programs that have the potential to reach and help numerous people.
+        My unconventional path to software development started while working as an emergency room and critical-care nurse. started learning to code in 2020 and completed multiple online courses/projects, and read books on HTML, CSS, and JavaScript. In addition to teaching myself front-end development, I completed an intensive, full stack software engineering bootcamp at Flatiron School to solidify my understanding of building full stack applications. I'm in awe of the infinite possibilities this career field allows in terms of collaborating and creating technology that have the potential to reach and help countless others.
         </p>
         <p>
-        Aside from coding, I LOVE exploring outside! I'm fortunate to call Colorado my home. High alpine lakes, technical ridgelines, and running many miles on trails overgrown with wildflowers are a few of my favorite things.
+        When I’m not coding, I LOVE adventuring outside, and reading/watching most things sci-fi! I'm fortunate to call Colorado my home. High alpine lakes, technical ridgelines, and running many miles on trails overgrown with wildflowers are a few of my favorite things.
         </p>
       </div>
 
